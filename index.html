@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Elementum Proxies | The First Hybrid TCG</title>
+    <meta name="description" content="Elementum Proxies bridges the gap between digital card games and real-world social interaction. Battle, trade, and survive." data-i18n-meta="description">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="glass">
+        <div class="container nav-content">
+            <div class="logo">ELEMENTUM <span>PROXIES</span></div>
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#cards" data-i18n="nav_cards">Cards</a></li>
+                <li class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span>|</span>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                </li>
+                <li><a href="#beta" class="btn btn-primary" data-i18n="nav_beta">Join Beta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1 class="fade-in" data-i18n="hero_title">Beyond the Screen. <br><span>Across the Table.</span></h1>
+                <p class="fade-in" data-i18n="hero_subtitle">The First Hybrid TCG that bridges the physical and digital worlds. Battle rivals in proximity, trade in person, and rise through the ranks.</p>
+                <div class="hero-actions fade-in">
+                    <a href="#beta" class="btn btn-large grad-fire" data-i18n="hero_btn_primary">Secure My Spot</a>
+                    <a href="#demo" class="btn btn-outline" data-i18n="hero_btn_secondary">Watch Demo</a>
+                </div>
+            </div>
+            <div class="hero-visual float">
+                <!-- Card Mockup Placeholder -->
+                <div class="card-glow"></div>
+                <img src="assets/ignis_gorgon_hero.png" alt="Ignis Gorgon Featured Card" id="hero-card">
+            </div>
+        </section>
+
+        <section id="about" class="usp-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2 class="grad-text" data-i18n="usp_header_title">Beyond the Screen. <br>Across the Table.</h2>
+                    <p data-i18n="usp_header_subtitle">No more lonely matchmaking. Elementum Proxies uses BLE and QR tech to ensure that every duel is a social experience.</p>
+                </div>
+                <div class="usp-grid">
+                    <div class="usp-card glass fade-in">
+                        <div class="usp-icon grad-fire"></div>
+                        <h3 data-i18n="usp_1_title">Physical Connection</h3>
+                        <p data-i18n="usp_1_desc">Verified physical proximity for matches using secure BLE handshakes.</p>
+                    </div>
+                    <div class="usp-card glass fade-in">
+                        <div class="usp-icon grad-earth"></div>
+                        <h3 data-i18n="usp_2_title">No Pay-to-Win</h3>
+                        <p data-i18n="usp_2_desc">Cards are earned through gameplay and trading. Skill is the only currency.</p>
+                    </div>
+                    <div class="usp-card glass fade-in">
+                        <div class="usp-icon grad-water"></div>
+                        <h3 data-i18n="usp_3_title">Dynamic Elements</h3>
+                        <p data-i18n="usp_3_desc">Real-world weather impacts your element's power in real-time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cards" class="elements-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2 class="grad-text" data-i18n="elements_title">Master the Elements</h2>
+                    <p data-i18n="elements_subtitle">64 unique proxies across 4 primal elements. Collect, evolve, and dominate.</p>
+                </div>
+                <div class="elements-grid">
+                    <div class="element-card glass fade-in" data-element="fire">
+                        <div class="element-visual grad-fire"></div>
+                        <div class="element-info">
+                            <h3 data-i18n="elem_fire_title">FIRE</h3>
+                            <p data-i18n="elem_fire_desc">Destructive. Passionate. Eternal.</p>
+                        </div>
+                    </div>
+                    <div class="element-card glass fade-in" data-element="earth">
+                        <div class="element-visual grad-earth"></div>
+                        <div class="element-info">
+                            <h3 data-i18n="elem_earth_title">EARTH</h3>
+                            <p data-i18n="elem_earth_desc">Unshakeable. Patient. Deep.</p>
+                        </div>
+                    </div>
+                    <div class="element-card glass fade-in" data-element="air">
+                        <div class="element-visual grad-air"></div>
+                        <div class="element-info">
+                            <h3 data-i18n="elem_air_title">AIR</h3>
+                            <p data-i18n="elem_air_desc">Fleeting. Sharp. Everywhere.</p>
+                        </div>
+                    </div>
+                    <div class="element-card glass fade-in" data-element="water">
+                        <div class="element-visual grad-water"></div>
+                        <div class="element-info">
+                            <h3 data-i18n="elem_water_title">WATER</h3>
+                            <p data-i18n="elem_water_desc">Fluid. Cold. Deep.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="collection" class="collection-section">
+            <div class="container">
+                <div class="collection-header fade-in">
+                    <div>
+                        <h2 class="grad-text" data-i18n="coll_title">The Collection</h2>
+                        <p data-i18n="coll_subtitle">Explore the 64 original proxies. New reveals every week.</p>
+                    </div>
+                    <div class="reveal-progress">
+                        <span data-i18n="coll_progress">10 / 64 Revealed</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collection-grid">
+                    <!-- Revealed Cards -->
+                    <div class="proxy-card revealed fade-in" data-element="fire">
+                        <img src="assets/ignis_gorgon_thumb.png" alt="Ignis Gorgon">
+                        <div class="card-label">Ignis-Gorgon (Fire)</div>
+                    </div>
+                    <div class="proxy-card revealed fade-in" data-element="earth">
+                        <img src="assets/terra_tortoise_thumb.png" alt="Terra-Schildkröte">
+                        <div class="card-label">Terra-Schildkröte (Earth)</div>
+                    </div>
+
+                    <!-- Locked Cards -->
+                    <div class="proxy-card locked fade-in" data-element="fire">
+                        <div class="lock-icon">?</div>
+                        <div class="card-label">LOCKED</div>
+                    </div>
+                    <div class="proxy-card locked fade-in" data-element="fire">
+                        <div class="lock-icon">?</div>
+                        <div class="card-label">LOCKED</div>
+                    </div>
+                    <div class="proxy-card locked fade-in" data-element="earth">
+                        <div class="lock-icon">?</div>
+                        <div class="card-label">LOCKED</div>
+                    </div>
+                    <div class="proxy-card locked fade-in" data-element="water">
+                        <div class="lock-icon">?</div>
+                        <div class="card-label">LOCKED</div>
+                    </div>
+                    <div class="proxy-card locked fade-in" data-element="water">
+                        <div class="lock-icon">?</div>
+                        <div class="card-label">LOCKED</div>
+                    </div>
+                    <div class="proxy-card locked fade-in" data-element="air">
+                        <div class="lock-icon">?</div>
+                        <div class="card-label">LOCKED</div>
+                    </div>
+                    <div class="proxy-card locked fade-in" data-element="air">
+                        <div class="lock-icon">?</div>
+                        <div class="card-label">LOCKED</div>
+                    </div>
+                    <div class="proxy-card locked fade-in" data-element="air">
+                        <div class="lock-icon">?</div>
+                        <div class="card-label">LOCKED</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beta" class="beta-section">
+            <div class="container">
+                <div class="beta-container glass fade-in">
+                    <div class="beta-content">
+                        <h2 class="grad-text" data-i18n="beta_title">Become a Founder</h2>
+                        <p data-i18n="beta_subtitle">Recruiting our first 100 "Frontline" testers. Secure your spot now and earn the exclusive Founder's Emblem.</p>
+                        
+                        <form id="beta-form" class="beta-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Email Address" required data-i18n-placeholder="beta_email_placeholder">
+                            </div>
+                            <div class="form-group">
+                                <select required data-i18n-select="beta_element_select">
+                                    <option value="" disabled selected data-i18n="beta_opt_default">Pick your Element</option>
+                                    <option value="fire" data-i18n="beta_opt_fire">Fire</option>
+                                    <option value="earth" data-i18n="beta_opt_earth">Earth</option>
+                                    <option value="air" data-i18n="beta_opt_air">Air</option>
+                                    <option value="water" data-i18n="beta_opt_water">Water</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large" data-i18n="beta_btn">Secure my Spot</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reveal" class="reveal-section">
+            <div class="container glass fade-in">
+                <div class="reveal-grid">
+                    <div class="reveal-info">
+                        <span class="badge" data-i18n="reveal_badge">TACTICAL TUESDAY REVEAL</span>
+                        <h2 data-i18n="reveal_title">This Week's Proxy: <br><span class="fire-text">Ignis-Gorgon</span></h2>
+                        <p class="lore" data-i18n="reveal_lore">"Born from the ash of the Great Volcanic Eruption of the Third Era, the Gorgon's blades are forged in literal soul-heat."</p>
+                        <div class="stats-row">
+                            <div class="stat"><span data-i18n="stat_atk">ATK</span> 36</div>
+                            <div class="stat"><span data-i18n="stat_def">DEF</span> 7</div>
+                            <div class="stat"><span data-i18n="stat_agi">AGI</span> 7</div>
+                        </div>
+                    </div>
+                    <div class="reveal-visual">
+                        <div class="featured-card float">
+                            <div class="card-inner grad-fire">
+                                <div class="card-content">
+                                    <img src="assets/ignis_gorgon_card.png" alt="Ignis Gorgon Card Art" class="card-art">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">ELEMENTUM <span>PROXIES</span></div>
+                <p data-i18n="footer_tagline">The First Hybrid Trading Card Game.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4 data-i18n="footer_community">Community</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer_discord">Discord</a></li>
+                        <li><a href="#" data-i18n="footer_twitter">X (Twitter)</a></li>
+                        <li><a href="#" data-i18n="footer_instagram">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer_legals">Legals</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="footer_impressum">Impressum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer_copy">&copy; 2026 Elementum Proxies. Built for the next generation of duelists.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
