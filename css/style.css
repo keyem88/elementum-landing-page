@@ -88,14 +88,27 @@ nav {
   align-items: center;
 }
 
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nav-logo {
+  height: 32px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(94, 92, 230, 0.3));
+}
+
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
   font-family: var(--font-header);
+  letter-spacing: 0.05em;
 }
 
 .logo span {
-  color: var(--accent-fire);
+  color: var(--primary);
   font-weight: 400;
 }
 
