@@ -83,7 +83,7 @@ const translations = {
         elem_earth_title: "ERDE",
         elem_earth_desc: "Unerschütterlich. Geduldig. Tief.",
         elem_air_title: "LUFT",
-        elem_air_desc: "Flüchtig. Scharf. Allgegenwärtig.",
+        elem_air_desc: "Flüchtig. Sharp. Allgegenwärtig.",
         elem_water_title: "WASSER",
         elem_water_desc: "Flüssig. Kalt. Tief.",
         coll_title: "Die Sammlung",
@@ -120,16 +120,35 @@ const translations = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("Quatralor: DOM Content Loaded. Initializing...");
+
     // --- Supabase Config ---
     const SUBAPASE_URL = "https://tyubexicjvaeuvhlnyfd.supabase.co";
     const SUPABASE_KEY = "sb_publishable_zXY_2MpFR0gdd9fxPMLlRg_x8OD0MOb";
-    const supabase = window.supabase ? window.supabase.createClient(SUBAPASE_URL, SUPABASE_KEY) : null;
+    let supabase = null;
+    
+    try {
+        if (window.supabase) {
+            supabase = window.supabase.createClient(SUBAPASE_URL, SUPABASE_KEY);
+            console.log("Quatralor: Supabase initialized.");
+        } else {
+            console.warn("Quatralor: Supabase SDK not found.");
+        }
+    } catch (e) {
+        console.error("Quatralor: Failed to initialize Supabase:", e);
+    }
 
     // --- i18n Logic ---
     const langBtns = document.querySelectorAll('.lang-btn');
     let currentLang = localStorage.getItem('preferredLang') || 'en';
 
     function setLanguage(lang) {
+        console.log("Quatralor: Setting language to", lang);
+        if (!translations[lang]) {
+            console.error("Quatralor: Translation not found for", lang);
+            return;
+        }
+        
         currentLang = lang;
         localStorage.setItem('preferredLang', lang);
 
@@ -175,10 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
         heroSection.addEventListener('mousemove', (e) => {
             const { clientX, clientY } = e;
             const { innerWidth, innerHeight } = window;
-            
             const xPos = (clientX / innerWidth - 0.5) * 40;
             const yPos = (clientY / innerHeight - 0.5) * 40;
-            
             heroCard.style.transform = `translate(${xPos}px, ${yPos}px) rotateX(${-yPos/2}deg) rotateY(${xPos/2}deg)`;
         });
 
@@ -189,26 +206,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Intersection Observer for fade-in animations
     const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
+    if (faders.length > 0) {
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
 
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('appear');
-            observer.unobserve(entry.target);
-        });
-    }, appearOptions);
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
 
-    faders.forEach(fader => appearOnScroll.observe(fader));
+        faders.forEach(fader => appearOnScroll.observe(fader));
+    }
 
     // Beta Form Submission
     const betaForm = document.getElementById('beta-form');
     if (betaForm) {
         betaForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            console.log("Quatralor: Submit button clicked.");
             const email = betaForm.querySelector('input[type="email"]').value;
             const element = betaForm.querySelector('select').value;
             const submitBtn = betaForm.querySelector('button[type="submit"]');
@@ -234,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             } catch (err) {
-                console.error("Signup error:", err);
+                console.error("Quatralor: Signup error:", err);
                 if (submitBtn) submitBtn.disabled = false;
                 alert("Something went wrong. Please try again.");
             }
@@ -248,11 +268,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModal = document.querySelector('.close-modal');
 
     if (watchDemoBtn && videoModal && demoVideo) {
+        console.log("Quatralor: Video modal initialized.");
         watchDemoBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            console.log("Quatralor: Playing demo video.");
             videoModal.style.display = 'flex';
             setTimeout(() => videoModal.classList.add('show'), 10);
-            demoVideo.play().catch(err => console.warn("Auto-play failed:", err));
+            demoVideo.play().catch(err => console.warn("Quatralor: Auto-play failed:", err));
         });
 
         const closeHandler = () => {
@@ -280,5 +302,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeHandler();
             }
         });
+    } else {
+        console.warn("Quatralor: Video modal elements not found.");
     }
+
+    console.log("Quatralor: Initialization complete.");
 });
