@@ -253,8 +253,9 @@
                 <div class="link-group">
                     <h4 data-i18n="footer_legals">Legals</h4>
                     <ul>
-                        <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
-                        <li><a href="#" data-i18n="footer_impressum">Impressum</a></li>
+                        <li><a href="legal/terms.html" data-i18n="footer_terms">Terms of Service</a></li>
+                        <li><a href="legal/privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+                        <li><a href="legal/impressum.html" data-i18n="footer_impressum">Impressum</a></li>
                     </ul>
                 </div>
             </div>
@@ -266,5 +267,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/script.js"></script>
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content glass">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <video id="demoVideo" controls preload="auto">
+                    <source src="assets/demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

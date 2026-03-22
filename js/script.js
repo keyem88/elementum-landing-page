@@ -52,6 +52,7 @@ const translations = {
         footer_instagram: "Instagram",
         footer_legals: "Legals",
         footer_privacy: "Privacy Policy",
+        footer_terms: "Terms of Service",
         footer_impressum: "Impressum",
         footer_copy: "&copy; 2026 Quatralor. Built for the next generation of duelists.",
         beta_success: "Welcome to the Frontline!",
@@ -110,6 +111,7 @@ const translations = {
         footer_instagram: "Instagram",
         footer_legals: "Rechtliches",
         footer_privacy: "Datenschutzerklärung",
+        footer_terms: "Nutzungsbedingungen",
         footer_impressum: "Impressum",
         footer_copy: "&copy; 2026 Quatralor. Gebaut für die nächste Generation von Duellanten.",
         beta_success: "Willkommen an der Frontline!",
@@ -235,6 +237,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error("Signup error:", err);
                 if (submitBtn) submitBtn.disabled = false;
                 alert("Something went wrong. Please try again.");
+            }
+        });
+    // Video Modal Logic
+    const videoModal = document.getElementById('videoModal');
+    const demoVideo = document.getElementById('demoVideo');
+    const watchDemoBtn = document.querySelector('a[href="#demo"]');
+    const closeModal = document.querySelector('.close-modal');
+
+    if (watchDemoBtn && videoModal && demoVideo) {
+        watchDemoBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            videoModal.style.display = 'flex';
+            setTimeout(() => videoModal.classList.add('show'), 10);
+            demoVideo.play().catch(err => console.warn("Auto-play failed:", err));
+        });
+
+        const closeHandler = () => {
+            videoModal.classList.remove('show');
+            setTimeout(() => {
+                videoModal.style.display = 'none';
+                demoVideo.pause();
+                demoVideo.currentTime = 0;
+            }, 300);
+        };
+
+        if (closeModal) {
+            closeModal.addEventListener('click', closeHandler);
+        }
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeHandler();
+            }
+        });
+
+        // Close on Escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('show')) {
+                closeHandler();
             }
         });
     }

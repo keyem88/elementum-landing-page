@@ -33,6 +33,7 @@ serve(async (req) => {
     }
     const elementDisplay = elementTranslations[language]?.[favorite_element?.toLowerCase()] || favorite_element
 
+    const discordLink = "https://discord.gg/E8ska36H"
     const subject = language === 'de' 
       ? "Willkommen in der Vorhut | Quatralor" 
       : "Welcome to the Vanguard | Quatralor"
@@ -54,6 +55,7 @@ serve(async (req) => {
         .accent { color: ${accentColor}; }
         p { line-height: 1.6; font-size: 16px; margin: 20px 0; }
         .badge { display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid ${accentColor}; border-radius: 8px; font-weight: bold; color: ${accentColor}; }
+        .btn { display: inline-block; background-color: ${accentColor}; color: white !important; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 20px; }
       </style>
     </head>
     <body>
@@ -65,12 +67,16 @@ serve(async (req) => {
           ${language === 'de' ? `
             <h1>Willkommen in der <span class="accent">Vorhut</span>.</h1>
             <p>Die Konvergenz hat begonnen. Wir haben dich als einen der ersten 100 <strong>Frontline-Tester</strong> vorgemerkt.</p>
-            <p>Deine Verbindung zum Element <span class="badge">${elementDisplay.toUpperCase()}</span> wurde registriert. Dies wird deinen Pfad in den kommenden Duellen prägen.</p>
+            <p>Deine Verbindung zum Element <span class="badge">${elementDisplay.toUpperCase()}</span> wurde registriert.</p>
+            <p><strong>Nächster Schritt:</strong> Tritt unserer Community "The Foundry" auf Discord bei. Dort erhältst du exklusive Einblicke und kannst die Entwicklung direkt mitgestalten.</p>
+            <a href="${discordLink}" class="btn">Der Foundry beitreten</a>
             <p>Sobald die Closed Beta Tore sich öffnen, erhältst du deinen Zugangsschlüssel direkt hier an diese Adresse.</p>
           ` : `
             <h1>Welcome to the <span class="accent">Vanguard</span>.</h1>
             <p>The convergence has begun. You have been drafted as one of our first 100 <strong>Frontline Testers</strong>.</p>
-            <p>Your affinity for <span class="badge">${elementDisplay.toUpperCase()}</span> has been recorded. This will shape your journey in the duels ahead.</p>
+            <p>Your affinity for <span class="badge">${elementDisplay.toUpperCase()}</span> has been recorded.</p>
+            <p><strong>Next Step:</strong> Join our community "The Foundry" on Discord. Get exclusive sneak peeks and help shape the future of Quatralor.</p>
+            <a href="${discordLink}" class="btn">Join The Foundry</a>
             <p>As soon as the Closed Beta gates swing open, you will receive your access key directly at this address.</p>
           `}
           <p style="margin-top: 40px; font-size: 14px; opacity: 0.7; color: ${colors.muted};">
