@@ -54,6 +54,7 @@ const translations = {
         footer_privacy: "Privacy Policy",
         footer_terms: "Terms of Service",
         footer_impressum: "Impressum",
+        footer_data_deletion: "Data Deletion",
         footer_copy: "&copy; 2026 Quatralor. Built for the next generation of duelists.",
         beta_success: "Welcome to the Frontline!",
         beta_success_desc: "We've sent a verification link to"
@@ -113,6 +114,7 @@ const translations = {
         footer_privacy: "Datenschutzerklärung",
         footer_terms: "Nutzungsbedingungen",
         footer_impressum: "Impressum",
+        footer_data_deletion: "Datenlöschung",
         footer_copy: "&copy; 2026 Quatralor. Gebaut für die nächste Generation von Duellanten.",
         beta_success: "Willkommen an der Frontline!",
         beta_success_desc: "Wir haben einen Bestätigungslink gesendet an"
