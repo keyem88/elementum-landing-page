@@ -239,6 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Something went wrong. Please try again.");
             }
         });
+    }
+
     // Video Modal Logic
     const videoModal = document.getElementById('videoModal');
     const demoVideo = document.getElementById('demoVideo');
