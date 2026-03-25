@@ -245,7 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const element = betaForm.querySelector('select').value;
             const submitBtn = betaForm.querySelector('button[type="submit"]');
             
-            if (submitB            try {
+            if (submitBtn) submitBtn.disabled = true;
+
+            try {
                 let isExisting = false;
                 if (supabase) {
                     // Check if email already exists
@@ -303,12 +305,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 `;
-         </div>
-                `;
             } catch (err) {
                 console.error("Quatralor: Signup error:", err);
                 if (submitBtn) submitBtn.disabled = false;
-                alert("Something went wrong. Please try again.");
+                alert(translations[currentLang].beta_error);
             }
         });
     }
