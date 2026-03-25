@@ -62,7 +62,10 @@ const translations = {
         footer_data_deletion: "Data Deletion",
         footer_copy: "&copy; 2026 Quatralor. Built for the next generation of duelists.",
         beta_success: "Welcome to the Frontline!",
-        beta_success_desc: "We've sent a verification link to"
+        beta_success_desc: "We've sent a verification link to",
+        beta_already_registered: "You're already part of the Vanguard!",
+        beta_already_registered_desc: "We already have you in our records for",
+        beta_error: "Something went wrong. Please try again."
     },
     de: {
         title: "Quatralor | Das erste Hybrid-TCG",
@@ -127,7 +130,10 @@ const translations = {
         footer_data_deletion: "Datenlöschung",
         footer_copy: "&copy; 2026 Quatralor. Gebaut für die nächste Generation von Duellanten.",
         beta_success: "Willkommen an der Frontline!",
-        beta_success_desc: "Wir haben einen Bestätigungslink gesendet an"
+        beta_success_desc: "Wir haben einen Bestätigungslink gesendet an",
+        beta_already_registered: "Du bist bereits Teil der Vorhut!",
+        beta_already_registered_desc: "Wir haben dich bereits in unseren Unterlagen für",
+        beta_error: "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     }
 };
 
