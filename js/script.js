@@ -273,9 +273,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h4 style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-main);">${translations[currentLang].beta_share_title}</h4>
                             <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">${translations[currentLang].beta_share_subtitle}</p>
                             <div class="share-buttons">
-                                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}" target="_blank" class="share-btn x" title="X (Twitter)">𝕏</a>
-                                <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + " " + shareUrl)}" target="_blank" class="share-btn whatsapp" title="WhatsApp">💬</a>
-                                <a href="https://www.instagram.com/quatralor/" target="_blank" class="share-btn instagram" title="Instagram">📸</a>
+                                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}" target="_blank" class="share-btn x" title="X (Twitter)">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                </a>
+                                <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + " " + shareUrl)}" target="_blank" class="share-btn whatsapp" title="WhatsApp">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a href="https://www.instagram.com/quatralor/" target="_blank" class="share-btn instagram" title="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
