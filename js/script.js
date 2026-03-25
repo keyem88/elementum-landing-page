@@ -245,17 +245,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const element = betaForm.querySelector('select').value;
             const submitBtn = betaForm.querySelector('button[type="submit"]');
             
-            if (submitBtn) submitBtn.disabled = true;
-
-            try {
+            if (submitB            try {
+                let isExisting = false;
                 if (supabase) {
-                    const { error } = await supabase
+                    // Check if email already exists
+                    const { data: existing, error: checkError } = await supabase
                         .from('beta_signups')
-                        .insert([
-                            { email, favorite_element: element, language: currentLang }
-                        ]);
+                        .select('email')
+                        .eq('email', email)
+                        .maybeSingle();
 
-                    if (error) throw error;
+                    if (checkError) console.warn("Quatralor: Check error:", checkError);
+                    
+                    if (existing) {
+                        isExisting = true;
+                    } else {
+                        // Insert new signup
+                        const { error } = await supabase
+                            .from('beta_signups')
+                            .insert([
+                                { email, favorite_element: element, language: currentLang }
+                            ]);
+                        if (error) throw error;
+                    }
                 }
 
                 // Show success message with sharing options
@@ -264,10 +276,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     : "No duelist fights alone. Quatralor happens across the table. Recruit your allies for the Vanguard now!";
                 const shareUrl = "https://keyem88.github.io/elementum-landing-page/";
                 
+                const title = isExisting ? translations[currentLang].beta_already_registered : translations[currentLang].beta_success;
+                const desc = isExisting ? translations[currentLang].beta_already_registered_desc : translations[currentLang].beta_success_desc;
+                const bgColor = isExisting ? 'rgba(94, 92, 230, 0.1)' : 'rgba(50, 215, 75, 0.1)';
+                const borderColor = isExisting ? 'var(--primary)' : 'var(--accent-earth)';
+                
                 betaForm.innerHTML = `
-                    <div class="success-message fade-in" style="padding: 2rem; border-radius: 12px; background: rgba(50, 215, 75, 0.1); border: 1px solid var(--accent-earth);">
-                        <h3 style="color: var(--accent-earth); margin-bottom: 1rem;">${translations[currentLang].beta_success}</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 2rem;">${translations[currentLang].beta_success_desc} <br><strong>${email}</strong>.</p>
+                    <div class="success-message fade-in" style="padding: 2rem; border-radius: 12px; background: ${bgColor}; border: 1px solid ${borderColor};">
+                        <h3 style="color: ${borderColor}; margin-bottom: 1rem;">${title}</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 2rem;">${desc} <br><strong>${email}</strong>.</p>
                         
                         <div class="share-section">
                             <h4 style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-main);">${translations[currentLang].beta_share_title}</h4>
@@ -285,6 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                     </div>
+                `;
+         </div>
                 `;
             } catch (err) {
                 console.error("Quatralor: Signup error:", err);
