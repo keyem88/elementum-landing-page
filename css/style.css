@@ -579,7 +579,7 @@ nav {
 
 .progress-fill {
   height: 100%;
-  width: 15%; /* 10/64 revealed */
+  width: 6.25%; /* 4/64 revealed */
   background: var(--primary);
   box-shadow: 0 0 10px var(--primary);
 }
@@ -835,4 +835,56 @@ footer {
   .nav-links {
     display: none; /* Simplification for now: no burger menu */
   }
+}
+
+/* Success & Sharing */
+.share-section {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.share-section h4 {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.share-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+}
+
+.share-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+.share-btn.x:hover { background: #000000; border-color: #333; }
+.share-btn.whatsapp:hover { background: #25D366; border-color: #128C7E; }
+.share-btn.instagram:hover { 
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  border-color: transparent;
+}
+
+.share-btn i {
+  /* Placeholder for icons if FontAwesome isn't used, otherwise just use text/svg */
+  font-style: normal;
+  font-weight: 800;
 }

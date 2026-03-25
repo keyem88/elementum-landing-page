@@ -29,9 +29,12 @@ const translations = {
         elem_water_desc: "Fluid. Cold. Deep.",
         coll_title: "The Collection",
         coll_subtitle: "Explore the 64 original proxies. New reveals every week.",
-        coll_progress: "12 / 64 Revealed",
+        coll_progress: "4 / 64 Revealed",
         water_revealed: "Deepsea Leviathan (Water)",
         air_revealed: "Storm Hawk (Air)",
+        beta_share_title: "No duelist fights alone.",
+        beta_share_subtitle: "Quatralor happens across the table. Recruit your allies for the Vanguard now!",
+        beta_share_btn: "Share",
         beta_title: "Join the Vanguard",
         beta_subtitle: "Recruiting our first 100 \"Frontline\" testers. Secure your spot now and earn the exclusive Vanguard's Emblem.",
         beta_email_placeholder: "Email Address",
@@ -91,9 +94,12 @@ const translations = {
         elem_water_desc: "Flüssig. Kalt. Tief.",
         coll_title: "Die Sammlung",
         coll_subtitle: "Entdecke die 64 originalen Proxies. Jede Woche neue Enthüllungen.",
-        coll_progress: "12 / 64 Enthüllt",
+        coll_progress: "4 / 64 Enthüllt",
         water_revealed: "Tiefsee-Leviathan (Wasser)",
         air_revealed: "Sturmfalke (Luft)",
+        beta_share_title: "Kein Duellant kämpft allein.",
+        beta_share_subtitle: "Quatralor findet am selben Tisch statt. Rekrutiere jetzt deine Verbündeten für die Vorhut!",
+        beta_share_btn: "Teilen",
         beta_title: "Werde Teil der Vorhut",
         beta_subtitle: "Wir suchen unsere ersten 100 \"Frontline\"-Tester. Sichere dir deinen Platz und erhalte das exklusive Vorhut-Emblem.",
         beta_email_placeholder: "E-Mail-Adresse",
@@ -252,11 +258,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (error) throw error;
                 }
 
-                // Show success message
+                // Show success message with sharing options
+                const shareText = currentLang === 'de' 
+                    ? "Kein Duellant kämpft allein. Quatralor findet am selben Tisch statt. Rekrutiere jetzt deine Verbündeten für die Vorhut!" 
+                    : "No duelist fights alone. Quatralor happens across the table. Recruit your allies for the Vanguard now!";
+                const shareUrl = "https://keyem88.github.io/elementum-landing-page/";
+                
                 betaForm.innerHTML = `
                     <div class="success-message fade-in" style="padding: 2rem; border-radius: 12px; background: rgba(50, 215, 75, 0.1); border: 1px solid var(--accent-earth);">
                         <h3 style="color: var(--accent-earth); margin-bottom: 1rem;">${translations[currentLang].beta_success}</h3>
-                        <p style="color: var(--text-muted);">${translations[currentLang].beta_success_desc} <br><strong>${email}</strong>.</p>
+                        <p style="color: var(--text-muted); margin-bottom: 2rem;">${translations[currentLang].beta_success_desc} <br><strong>${email}</strong>.</p>
+                        
+                        <div class="share-section">
+                            <h4 style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-main);">${translations[currentLang].beta_share_title}</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">${translations[currentLang].beta_share_subtitle}</p>
+                            <div class="share-buttons">
+                                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}" target="_blank" class="share-btn x" title="X (Twitter)">𝕏</a>
+                                <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + " " + shareUrl)}" target="_blank" class="share-btn whatsapp" title="WhatsApp">💬</a>
+                                <a href="https://www.instagram.com/quatralor/" target="_blank" class="share-btn instagram" title="Instagram">📸</a>
+                            </div>
+                        </div>
                     </div>
                 `;
             } catch (err) {
