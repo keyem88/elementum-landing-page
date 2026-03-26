@@ -255,8 +255,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 let isExisting = false;
-                if (supabase) {
-                    // Check if email already exists
+                
+                // 1. Local check (Immediate fallback)
+                if (localStorage.getItem('quatralor_registered_' + email)) {
+                    isExisting = true;
+                }
+
+                // 2. Database check
+                if (!isExisting && supabase) {
+                    // Check if email already exists in Supabase
                     const { data: existing, error: checkError } = await supabase
                         .from('beta_signups')
                         .select('email')
@@ -275,7 +282,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 { email, favorite_element: element, language: currentLang }
                             ]);
                         if (error) throw error;
+                        
+                        // Mark as registered locally
+                        localStorage.setItem('quatralor_registered_' + email, 'true');
                     }
+                } else if (isExisting) {
+                    console.log("Quatralor: Duplicate detected via LocalStorage.");
                 }
 
                 // Show success message with sharing options
